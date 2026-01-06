@@ -36,9 +36,9 @@ jobs:
         run: pnpm install
 
       - name: build linux AppImage
-        run: pnpm run build:linux
+        run: pnpm run build:linux-x64
 
       - name: create release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/nanokvm-usb-${{ github.ref_name }}.AppImage
+          files: dist/nanokvm-usb-${{ github.ref_name }}-linux-x64.AppImage

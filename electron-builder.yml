@@ -45,11 +45,11 @@ dmg:
 linux:
   target:
     - AppImage
-  maintainer: gh:lcwllmr
+  maintainer: lcwllmr
   category: Utility
 
 appImage:
-  artifactName: ${productName}-v${version}.${ext}
+  artifactName: ${productName}-v${version}-${os}-${arch}.${ext}
 
 npmRebuild: false
 
