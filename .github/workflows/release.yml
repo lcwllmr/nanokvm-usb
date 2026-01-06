@@ -1,6 +1,7 @@
 name: release AppImage
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
@@ -39,19 +40,7 @@ jobs:
       - name: build linux AppImage
         run: pnpm run build:linux
 
-      - name: derive version
-        id: version
-        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
-
-      - name: normalize AppImage name
-        run: |
-          appimage_path="$(ls dist/*.AppImage | head -n 1)"
-          target="dist/nanokvm-usb-${{ steps.version.outputs.version }}.AppImage"
-          if [ "$appimage_path" != "$target" ]; then
-            mv "$appimage_path" "$target"
-          fi
-
       - name: create release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/nanokvm-usb-${{ steps.version.outputs.version }}.AppImage
+          files: dist/nanokvm-usb-v${GITHUB_REF_NAME}.AppImage
