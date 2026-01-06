@@ -1,5 +1,5 @@
-appId: com.sipeed.usbkvm
-productName: NanoKVM-USB
+appId: io.github.lcwllmr.nanokvm-usb
+productName: nanokvm-usb
 
 directories:
   buildResources: build
@@ -45,9 +45,7 @@ dmg:
 linux:
   target:
     - AppImage
-    - snap
-    - deb
-  maintainer: sipeed.com
+  maintainer: github.com/lcwllmr
   category: Utility
 
 appImage:
@@ -55,7 +53,7 @@ appImage:
 
 npmRebuild: false
 
-afterSign: "./notarize.js"
+afterSign: './notarize.js'
 
 publish:
   provider: github
