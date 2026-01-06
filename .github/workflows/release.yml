@@ -19,7 +19,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: pnpm
+
+      - name: enable pnpm
+        run: corepack enable
 
       - name: install build dependencies
         run: |
@@ -51,10 +54,10 @@ jobs:
             libfuse2
 
       - name: install Node dependencies
-        run: npm install
+        run: pnpm install
 
       - name: build linux AppImage
-        run: npm run build:linux
+        run: pnpm run build:linux
 
       - name: derive version
         id: version
