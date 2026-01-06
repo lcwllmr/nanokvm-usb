@@ -28,7 +28,6 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 10
-          cache: true
 
       - name: checkout
         uses: actions/checkout@v4
@@ -42,4 +41,4 @@ jobs:
       - name: create release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/nanokvm-usb-v${GITHUB_REF_NAME}.AppImage
+          files: dist/nanokvm-usb-${{ github.ref_name }}.AppImage
