@@ -5,7 +5,6 @@ directories:
   buildResources: build
 
 files:
-  - '!**/.vscode/*'
   - '!src/*'
   - '!electron.vite.config.{js,ts,mjs,cjs}'
   - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,CHANGELOG.md,README.md}'
@@ -14,33 +13,6 @@ files:
 
 asarUnpack:
   - resources/**
-
-win:
-  executableName: NanoKVM-USB
-
-nsis:
-  oneClick: false
-  allowToChangeInstallationDirectory: true
-  artifactName: ${productName}-${version}-setup.${ext}
-  shortcutName: ${productName}
-  uninstallDisplayName: ${productName}
-  createDesktopShortcut: true
-  createStartMenuShortcut: true
-
-mac:
-  entitlementsInherit: build/entitlements.mac.plist
-  extendInfo:
-    NSCameraUsageDescription: Application requests access to the device's camera.
-    NSMicrophoneUsageDescription: Application requests access to the device's microphone.
-    NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
-    NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
-  hardenedRuntime: true
-  gatekeeperAssess: false
-  notarize: false
-
-dmg:
-  artifactName: ${productName}-${version}.${ext}
-  sign: true
 
 linux:
   target:
@@ -52,8 +24,6 @@ appImage:
   artifactName: ${productName}-v${version}-${os}-${arch}.${ext}
 
 npmRebuild: false
-
-afterSign: './notarize.js'
 
 electronDownload:
   mirror: https://npmmirror.com/mirrors/electron/
