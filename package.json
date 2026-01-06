@@ -11,7 +11,7 @@
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
     "typecheck": "pnpm run typecheck:node && pnpm run typecheck:web",
     "start": "electron-vite preview",
-    "build:linux-x64": "electron-vite build && electron-builder --linux --x64 --publish never"
+    "build:x86_64-linux": "electron-vite build && electron-builder --linux --x64 --publish never"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",

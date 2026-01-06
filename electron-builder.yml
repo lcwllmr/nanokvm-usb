@@ -21,7 +21,7 @@ linux:
   category: Utility
 
 appImage:
-  artifactName: ${productName}-v${version}-${os}-${arch}.${ext}
+  artifactName: ${productName}-v${version}-${arch}-${os}.${ext}
 
 npmRebuild: false
 
