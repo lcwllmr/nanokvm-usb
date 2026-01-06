@@ -24,7 +24,7 @@ On Linux, make sure that your user has permissions to access serial ports. It mu
 
 ## Changelog (relative to original)
 
-`v0.2.0` (planned):
+`v0.2.0`:
 
 - remove all languages other than english
 - fully remove settings menu
