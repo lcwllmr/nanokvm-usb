@@ -6,9 +6,13 @@ A list of changes done can be found below.
 
 ## Installation
 
-TODO: directly install on NixOS right from this flake.
+Run from flake on graphical NixOS via
+```bash
+nix run github:lcwllmr/nanokvm-usb
+```
+or install into your profile/system config.
 
-To run right from this repo, use:
+To run right from this repo, clone it and run:
 
 ```bash
 nix develop
@@ -18,6 +22,16 @@ pnpm start
 
 On Linux, make sure that your user has permissions to access serial ports. It must be added to the group `dialout` on NixOS and Debian or `uucp` on Arch Linux.
 
-## Changelog relative to original
+## Changelog (relative to original)
 
+`v0.2.0` (planned):
+
+- remove all languages other than english
+- fully remove settings menu
+- remove auto-update functionality
+- remove mac support (for now)
+
+`v0.1.0`:
+
+- added github actions for appimage on amd64-linux only (for now)
 - fully removed browser support
