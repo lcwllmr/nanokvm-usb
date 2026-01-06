@@ -13,11 +13,10 @@
       };
       packages.x86_64-linux.default = let
         pname = "nanokvm-usb";
-        version = "0.1.0";
+        version = "0.2.0";
         src = pkgs.fetchurl {
-          url = "https://github.com/lcwllmr/nanokvm-usb/releases/download/v${version}/nanokvm-usb-v${version}.AppImage";
-          hash = "sha256-Kz8Wx8ACzzNCVDKrXX44I6tSqErLOdZvNLsqjBuerO8=";
-          # hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+          url = "https://github.com/lcwllmr/nanokvm-usb/releases/download/v${version}/nanokvm-usb-v${version}-x86_64-linux.AppImage";
+          hash = "sha256-aL5g3EyzilqkSSLesBB5jdBmkni/pG4RT6d4Q7vl0e0=";
         };
       in
         pkgs.appimageTools.wrapType2 {
