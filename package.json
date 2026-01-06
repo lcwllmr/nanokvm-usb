@@ -1,7 +1,6 @@
 {
   "name": "nanokvm-usb",
-  "version": "0.1.0",
-  "description": "NanoKVM-USB Desktop",
+  "version": "0.2.0",
   "main": "./out/main/index.js",
   "author": "lcwllmr",
   "homepage": "https://github.com/lcwllmr/nanokvm-usb",
