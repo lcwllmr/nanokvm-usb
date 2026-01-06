@@ -1,7 +1,6 @@
 name: release AppImage
 
 on:
-  workflow_dispatch:
   push:
     tags:
       - 'v*'
