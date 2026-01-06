@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
-import { app, BrowserWindow, shell, session } from 'electron'
+import { app, BrowserWindow, session, shell } from 'electron'
 import log from 'electron-log/main'
 
 import icon from '../../resources/icon.png?asset'
@@ -56,8 +56,6 @@ app.whenReady().then(() => {
   events.registerSerialPort()
 
   createWindow()
-
-  events.registerUpdater(mainWindow)
 
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()

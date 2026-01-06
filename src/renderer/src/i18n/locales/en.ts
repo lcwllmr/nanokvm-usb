@@ -39,7 +39,6 @@ const en = {
     },
     keyboard: {
       paste: 'Paste',
-      virtualKeyboard: 'Keyboard',
       shortcut: {
         title: 'Shortcut',
         custom: 'Custom Shortcut',
@@ -52,7 +51,7 @@ const en = {
         winTab: 'Win + Tab',
         enterFullScreen: 'Enter Full Screen',
         captureTips: 'Capturing the Meta key separately requires operation in full-screen mode.'
-      },
+      }
     },
     mouse: {
       cursor: {
@@ -76,41 +75,6 @@ const en = {
         title: 'Mouse Jiggler',
         enable: 'Enable',
         disable: 'Disable'
-      }
-    },
-    settings: {
-      title: 'Settings',
-      appearance: {
-        title: 'Appearance',
-        language: 'Language',
-        menu: 'Menu Bar',
-        menuTips: 'Open menu bar when launch'
-      },
-      update: {
-        title: 'Check for Updates',
-        latest: 'You already have the latest version.',
-        outdated: 'An update is available. Are you sure you want to update now?',
-        downloading: 'Downloading...',
-        installing: 'Installing...',
-        failed: 'Update failed. Please retry.',
-        confirm: 'Confirm',
-        cancel: 'Cancel'
-      },
-      about: {
-        title: 'About',
-        version: 'Version',
-        community: 'Community'
-      },
-      reset: {
-        title: 'Reset Settings',
-        description: 'Reset all application settings to default values',
-        warning: 'Warning',
-        warningDescription: 'This action cannot be undone. All your custom settings will be lost.',
-        button: 'Reset All Settings',
-        confirmTitle: 'Confirm Reset',
-        confirmMessage: 'Are you sure you want to reset all settings? This action cannot be undone.',
-        confirm: 'Reset',
-        cancel: 'Cancel'
       }
     }
   }

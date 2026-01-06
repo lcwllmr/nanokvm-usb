@@ -3,14 +3,12 @@ import { Result, Spin } from 'antd'
 import clsx from 'clsx'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useTranslation } from 'react-i18next'
-import { useMediaQuery } from 'react-responsive'
 
 import { IpcEvents } from '@common/ipc-events'
 import { DeviceModal } from '@renderer/components/device-modal'
 import { Keyboard } from '@renderer/components/keyboard'
 import { Menu } from '@renderer/components/menu'
 import { Mouse } from '@renderer/components/mouse'
-import { VirtualKeyboard } from '@renderer/components/virtual-keyboard'
 import {
   resolutionAtom,
   serialPortStateAtom,
@@ -27,8 +25,6 @@ type State = 'loading' | 'success' | 'failed'
 
 const App = (): ReactElement => {
   const { t } = useTranslation()
-  const isBigScreen = useMediaQuery({ minWidth: 850 })
-
   const videoScale = useAtomValue(videoScaleAtom)
   const videoState = useAtomValue(videoStateAtom)
   const serialPortState = useAtomValue(serialPortStateAtom)
@@ -131,8 +127,6 @@ const App = (): ReactElement => {
         autoPlay
         playsInline
       />
-
-      <VirtualKeyboard isBigScreen={isBigScreen} />
     </>
   )
 }

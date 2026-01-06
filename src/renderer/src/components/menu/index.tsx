@@ -1,25 +1,17 @@
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useState } from 'react'
 import { Divider } from 'antd'
 import clsx from 'clsx'
 import { MenuIcon, XIcon } from 'lucide-react'
 
-import * as storage from '@renderer/libs/storage'
-
 import { Fullscreen } from './fullscreen'
 import { Keyboard } from './keyboard'
 import { Mouse } from './mouse'
-import { SerialPort } from './serial-port'
-import { Settings } from './settings'
-import { Video } from './video'
 import { Recorder } from './recorder'
+import { SerialPort } from './serial-port'
+import { Video } from './video'
 
 export const Menu = (): ReactElement => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const isOpen = storage.getIsMenuOpen()
-    setIsMenuOpen(isOpen)
-  }, [])
+  const [isMenuOpen, setIsMenuOpen] = useState(true)
 
   function toggleMenu(): void {
     setIsMenuOpen(!isMenuOpen)
@@ -47,7 +39,6 @@ export const Menu = (): ReactElement => {
           <Divider type="vertical" className="px-[2px]" />
 
           <Fullscreen />
-          <Settings />
           <div
             className="flex h-[28px] cursor-pointer items-center justify-center rounded px-2 text-white hover:bg-neutral-700/70"
             onClick={toggleMenu}

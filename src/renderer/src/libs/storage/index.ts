@@ -1,30 +1,18 @@
-import type { Resolution } from '@renderer/types'
 import { ShortcutProps } from '@renderer/libs/device/keyboard'
-import { getWithExpiry, setWithExpiry } from './expiry'
+import type { Resolution } from '@renderer/types'
 
-const LANGUAGE_KEY = 'nanokvm-usb-language'
 const VIDEO_DEVICE_ID_KEY = 'nanokvm-usb-video-device-id'
 const VIDEO_RESOLUTION_KEY = 'nanokvm-usb-video-resolution'
 const VIDEO_SCALE_KEY = 'nanokvm-usb-video-scale'
 const CUSTOM_RESOLUTION_KEY = 'nanokvm-usb-custom-resolution'
 const SERIAL_PORT_KEY = 'nanokvm-serial-port'
-const IS_MENU_OPEN_KEY = 'nanokvm-is-menu-open'
 const MOUSE_STYLE_KEY = 'nanokvm-usb-mouse-style'
 const MOUSE_MODE_KEY = 'nanokvm-usb-mouse-mode'
 const MOUSE_SCROLL_DIRECTION_KEY = 'nanokvm-usb-mouse-scroll-direction'
-const SKIP_UPDATE_KEY = 'nano-kvm-check-update'
 const MOUSE_SCROLL_INTERVAL_KEY = 'nanokvm-usb-mouse-scroll-interval'
 const BAUD_RATE_KEY = 'nanokvm-usb-baud-rate'
 const MOUSE_JIGGLER_MODE_KEY = 'nanokvm-usb-mouse-jiggler-mode'
-const SHORTCUTS_KEY = 'nanokvm-usb-shortcuts';
-
-export function getLanguage(): string | null {
-  return localStorage.getItem(LANGUAGE_KEY)
-}
-
-export function setLanguage(language: string): void {
-  localStorage.setItem(LANGUAGE_KEY, language)
-}
+const SHORTCUTS_KEY = 'nanokvm-usb-shortcuts'
 
 export function getVideoDevice(): string | null {
   return localStorage.getItem(VIDEO_DEVICE_ID_KEY)
@@ -99,18 +87,6 @@ export function setBaudRate(baudRate: number): void {
   localStorage.setItem(BAUD_RATE_KEY, baudRate.toString())
 }
 
-export function getIsMenuOpen(): boolean {
-  const state = localStorage.getItem(IS_MENU_OPEN_KEY)
-  if (!state) {
-    return true
-  }
-  return state === 'true'
-}
-
-export function setIsMenuOpen(isOpen: boolean): void {
-  localStorage.setItem(IS_MENU_OPEN_KEY, isOpen ? 'true' : 'false')
-}
-
 export function getMouseStyle(): string | null {
   return localStorage.getItem(MOUSE_STYLE_KEY)
 }
@@ -151,31 +127,6 @@ export function setMouseScrollInterval(interval: number): void {
   localStorage.setItem(MOUSE_SCROLL_INTERVAL_KEY, String(interval))
 }
 
-export function getSkipUpdate(): boolean {
-  const skip = getWithExpiry(SKIP_UPDATE_KEY)
-  return skip ? Boolean(skip) : false
-}
-
-export function setSkipUpdate(skip: boolean): void {
-  const expiry = 3 * 24 * 60 * 60 * 1000
-  setWithExpiry(SKIP_UPDATE_KEY, String(skip), expiry)
-}
-
-export function clearAllSettings(): void {
-  localStorage.removeItem(LANGUAGE_KEY)
-  localStorage.removeItem(VIDEO_DEVICE_ID_KEY)
-  localStorage.removeItem(VIDEO_RESOLUTION_KEY)
-  localStorage.removeItem(CUSTOM_RESOLUTION_KEY)
-  localStorage.removeItem(SERIAL_PORT_KEY)
-  localStorage.removeItem(IS_MENU_OPEN_KEY)
-  localStorage.removeItem(MOUSE_STYLE_KEY)
-  localStorage.removeItem(MOUSE_MODE_KEY)
-  localStorage.removeItem(MOUSE_SCROLL_DIRECTION_KEY)
-  localStorage.removeItem(SKIP_UPDATE_KEY)
-  localStorage.removeItem(MOUSE_SCROLL_INTERVAL_KEY)
-  localStorage.removeItem(BAUD_RATE_KEY)
-}
-
 export function getMouseJigglerMode(): 'enable' | 'disable' {
   const jiggler = localStorage.getItem(MOUSE_JIGGLER_MODE_KEY)
   return jiggler && jiggler === 'enable' ? 'enable' : 'disable'
@@ -186,11 +137,11 @@ export function setMouseJigglerMode(jiggler: 'enable' | 'disable'): void {
 }
 
 export function getShortcuts(): ShortcutProps[] {
-  const shortcuts = localStorage.getItem(SHORTCUTS_KEY);
-  if (!shortcuts) return [];
-  return window.JSON.parse(shortcuts);
+  const shortcuts = localStorage.getItem(SHORTCUTS_KEY)
+  if (!shortcuts) return []
+  return window.JSON.parse(shortcuts)
 }
 
 export function setShortcuts(shortcuts: ShortcutProps[]): void {
-  localStorage.setItem(SHORTCUTS_KEY, window.JSON.stringify(shortcuts));
+  localStorage.setItem(SHORTCUTS_KEY, window.JSON.stringify(shortcuts))
 }

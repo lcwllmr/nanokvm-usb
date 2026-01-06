@@ -30,6 +30,7 @@ On Linux, make sure that your user has permissions to access serial ports. It mu
 - fully remove settings menu
 - remove auto-update functionality
 - remove mac support (for now)
+- remove virtual keyboard
 
 `v0.1.0`:
 
